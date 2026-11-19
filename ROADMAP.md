@@ -20,8 +20,6 @@ Notation: `x` position, `v` velocity, `p` predicted position, `w = 1/m` inverse 
 > Don't integrate forces into positions. **Guess** where particles go (`p`), **fix** the guess
 > until constraints are satisfied, then **derive** velocity from how far they actually moved.
 
-<p align="center"><img src="docs/pbd-algorithm.svg" alt="PBD Algorithm 1 flowchart" width="600"></p>
-
 ---
 
 ### Phase A — Setup (Algorithm 1, line 1)
@@ -71,21 +69,15 @@ Notation: `x` position, `v` velocity, `p` predicted position, `w = 1/m` inverse 
 
 ### Phase E — Constraint library (§3.3, §4)
 
-Purple = particles · coral = correction `Δp` · green = normals `n`
-
 - [ ] **E1. Distance (stretch)** — §3.3, §4.1
-  <br><img src="docs/constraints/e1-distance.svg" alt="Distance constraint" width="380"><br>
   `C(p₁,p₂) = |p₁ − p₂| − d`
   `Δp₁ = −(w₁/(w₁+w₂)) (|p₁−p₂| − d) (p₁−p₂)/|p₁−p₂|`
   `Δp₂ = +(w₂/(w₁+w₂)) (|p₁−p₂| − d) (p₁−p₂)/|p₁−p₂|`
 - [ ] **E2. Bending** — §4.1
-  <br><img src="docs/constraints/e2-bending.svg" alt="Bending constraint" width="380"><br>
   `C(p₁,p₂,p₃,p₄) = acos(n₁ · n₂) − φ₀`
 - [ ] **E3. Self-collision** — §4.3
-  <br><img src="docs/constraints/e3-self-collision.svg" alt="Self-collision constraint" width="380"><br>
   `C(q,p₁,p₂,p₃) = (q − p₁) · n − h`
 - [ ] **E4. Pressure / balloon** — §4.4
-  <br><img src="docs/constraints/e4-pressure.svg" alt="Pressure constraint" width="380"><br>
   `C(p₁…p_N) = Σ (p_{t₁} × p_{t₂}) · p_{t₃} − k_pressure · V₀`
 
 ### Phase F — Hook into Mwendo
