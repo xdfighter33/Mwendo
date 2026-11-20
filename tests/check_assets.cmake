@@ -1,0 +1,5 @@
+foreach(asset IN ITEMS models/cube.obj shaders/PhysicsShaders.metallib)
+    if(NOT EXISTS "${ASSET_DIR}/${asset}")
+        message(FATAL_ERROR "Missing staged asset: ${asset}")
+    endif()
+endforeach()

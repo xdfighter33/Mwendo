@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# CLion and JetBrains local settings
+.idea/
+.idea-backup/
+idea/
+
+# CMake build trees and generated files
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# Compiled outputs
+*.o
+*.air
+*.metallib

@@ -1,0 +1,22 @@
+#ifndef CUBE_SHARED_METALH
+#define CUBE_SHARED_METALH
+#include <metal_stdlib>
+using namespace metal;
+
+struct CubeVertex {
+    packed_float3 position;
+    packed_float3 normal;
+};
+
+struct CubeUniforms {
+    float4x4 viewProjection;
+    float4 cameraPosition;
+};
+
+struct CubeVertexOut {
+    float4 position [[position]];
+    float3 normal;
+    float3 worldPosition;
+    uint material [[flat]];
+};
+#endif
